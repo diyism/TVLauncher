@@ -9,6 +9,7 @@
     $ ./gradlew assembleRelease
     $ ls -al app/build/outputs/apk/release/app-release-unsigned.apk
     $ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ~/apk.keystore app/build/outputs/apk/release/app-release-unsigned.apk my-key-alias
+    $ mv app/build/outputs/apk/release/app-release-unsigned.apk app/build/outputs/apk/release/app-release-signed.apk
 
 # Android TV Launcher
 
