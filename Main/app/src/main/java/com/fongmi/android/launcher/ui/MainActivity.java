@@ -3,6 +3,7 @@ package com.fongmi.android.launcher.ui;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,12 +24,27 @@ public class MainActivity extends AppCompatActivity {
 		setContentView(binding.getRoot());
 		Utils.hideSystemUI(this);
 		initView();
+		initBackPressedHandler();
 		initEvent();
 	}
 
 	private void initView() {
 		setRecyclerView();
 		mAdapter.getApp();
+	}
+
+	private void initBackPressedHandler() {
+		// This callback will only be called when MyFragment is at least Started.
+		OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+			@Override
+			public void handleOnBackPressed() {
+				// Handle the back button event
+				// For a launcher, moving the task to back is a common behavior,
+				// similar to pressing the Home button.
+				//moveTaskToBack(true);
+			}
+		};
+		getOnBackPressedDispatcher().addCallback(this, callback);
 	}
 
 	private void initEvent() {
