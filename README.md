@@ -5,8 +5,9 @@
     $ sdk install gradle
     
     $ cd TVLauncher/Main
-    $ gradle wrapper --gradle-version 7.0.2
+    $ gradle wrapper --gradle-version 7.6
     $ ./gradlew assembleRelease
+    $ ls -al app/build/outputs/apk/release/app-release-unsigned.apk
 
 # Android TV Launcher
 
